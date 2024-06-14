@@ -49,3 +49,8 @@ Partition key format `p#1#likelist`
 Partition key format `p#1#likecount`
 
 <b>Sort Keys:</b> will contain the `count`
+
+## User Timeline Entity
+Partition key format `u#12345#timeline`
+
+<b>Sort Keys:</b> `p#12345#u#67890`

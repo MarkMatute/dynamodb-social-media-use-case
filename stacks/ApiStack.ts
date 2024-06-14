@@ -23,6 +23,8 @@ export function ApiStack({ stack }: StackContext) {
         "packages/functions/src/getUserLikesByPostID.main",
       "GET /posts/{postId}/likescount":
         "packages/functions/src/getLikeCountByPostID.main",
+      "GET /user/{userId}/timeline":
+        "packages/functions/src/getTimelineByUserID.main",
     },
   });
 
