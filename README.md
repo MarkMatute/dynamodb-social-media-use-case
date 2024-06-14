@@ -44,3 +44,8 @@ Partition key format `u#12345#post`
 Partition key format `p#1#likelist`
 
 <b>Sort Keys:</b> will contain the `user id`
+
+## Post Like Counts Entity
+Partition key format `p#1#likecount`
+
+<b>Sort Keys:</b> will contain the `count`
