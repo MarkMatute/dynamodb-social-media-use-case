@@ -30,3 +30,7 @@ info: name, content, imageUrl and etc
 ## User Follower Entity
 Partition key format `u#12345#follower`
 <b>Sort Keys:</b> will contain the `user id`
+
+## User Following Entity
+Partition key format `u#12345#following`
+<b>Sort Keys:</b> will contain the `user id`

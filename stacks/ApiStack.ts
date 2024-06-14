@@ -14,6 +14,7 @@ export function ApiStack({ stack }: StackContext) {
     routes: {
       "GET /users/{userId}": "packages/functions/src/getUserInfoByUserID.main",
       "GET /users/{userId}/follower": "packages/functions/src/getFollowerListByUserID.main",
+      "GET /users/{userId}/following": "packages/functions/src/getFollowingListByUserID.main",
     },
   });
 
