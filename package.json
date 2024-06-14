@@ -1,5 +1,6 @@
 {
-  "name": "social-media-use-case",
+  "name": "dynamodb-social-media-use-case",
+  "description": "dynamodb single table design implementation for a simple social media use case",
   "version": "0.0.0",
   "private": true,
   "type": "module",

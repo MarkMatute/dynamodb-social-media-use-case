@@ -17,3 +17,12 @@
 5. Post
 6. Post Like List
 7. Post Like Count
+
+## User Entity Design
+Partition key format `u#12345`
+
+<b>Sort Keys:</b>
+
+count: follower, following and posts
+
+info: name, content, imageUrl and etc
