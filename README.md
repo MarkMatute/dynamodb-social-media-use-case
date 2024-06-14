@@ -39,3 +39,8 @@ Partition key format `u#12345#following`
 Partition key format `u#12345#post`
 
 <b>Sort Key:</b> `p#1`
+
+## Post Like Entity
+Partition key format `p#1#likelist`
+
+<b>Sort Keys:</b> will contain the `user id`
