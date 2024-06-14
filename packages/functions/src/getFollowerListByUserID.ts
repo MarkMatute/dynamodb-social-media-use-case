@@ -1,7 +1,6 @@
-import { User } from "@social-media-use-case/core/domain-models/user";
-import dynamoDb from "@social-media-use-case/core/libs/dynamodb";
+import dynamodb from "@social-media-use-case/core/libs/dynamodb";
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { DocumentClient } from "aws-sdk/lib/dynamodb/document_client";
+import { DocumentClient } from "aws-sdk/clients/dynamodb";
 import { Table } from "sst/node/table";
 
 export async function main(event: APIGatewayProxyEvent) {
@@ -14,27 +13,21 @@ export async function main(event: APIGatewayProxyEvent) {
       ConsistentRead: false,
       KeyConditionExpression: "pk = :userId",
       ExpressionAttributeValues: {
-        ":userId": `u#${userId}`,
+        ":userId": `u#${userId}#follower`,
       },
     };
 
-    const result = await dynamoDb.query(params);
+    const result = await dynamodb.query(params);
 
     if (!result.Items) {
       throw new Error("Item not found.");
     }
 
-    const response = result.Items.reduce((acc, item) => {
-      acc[item.sk] = item;
-      return acc;
-    }, {}) as User;
+    const response = result.Items.map((i) => i.sk);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        id: userId,
-        ...response,
-      }),
+      body: JSON.stringify(response),
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,9 +35,9 @@ export async function main(event: APIGatewayProxyEvent) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: {
+      body: JSON.stringify({
         message: "Something went wrong.",
-      },
+      }),
       headers: {
         "Content-Type": "application/json",
       },

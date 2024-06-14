@@ -26,3 +26,7 @@ Partition key format `u#12345`
 count: follower, following and posts
 
 info: name, content, imageUrl and etc
+
+## User Follower Entity
+Partition key format `u#12345#follower`
+<b>Sort Keys:</b> will contain the `user id`
